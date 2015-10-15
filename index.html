@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/c3.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Load the javascript libraries -->
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/bootstrap.min.js" ></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/d3.v3.min.js"></script>
+    <script src="js/c3.min.js"></script>
+    <script src="js/c3-angular.min.js"></script>
+    <script src="js/graph.js"></script>
+</head>
+<body ng-app="graphApp">
+<div class="container col-10 center-block">
+    <div class="row">
+        <h1>Sample 1: 1Most basic C3JS sample</h1>
+        <div id="chart1"></div>
+
+        <!-- Initialize and draw the chart -->
+        <script type="text/javascript">
+            var chart = c3.generate({
+                bindto: '#chart1',
+                data: {
+                  columns: [
+                    ['data1', 30, 200, 100, 400, 150, 250],
+                    ['data2', 50, 20, 10, 40, 15, 25]
+                  ]
+                }
+            });
+        </script>
+    </div>
+
+    <div class="row" ng-controller="GraphCtrl1" ng-init="showGraph()">
+        <h1>Sample 2: Use AngularJS to create the chart</h1>
+        <div id="chart2"></div>
+    </div>
+
+    <div class="row" ng-controller="GraphCtrl2" ng-init="showGraph()">
+        <h1>Sample 3: Give the power to the user to change the data</h1>
+        <form novalidate>
+            <p>Enter in format: val1,val2,val3,etc</p>
+            <input ng-model="config.data1" type="text" size="100"/>
+            <select ng-model="config.type1" ng-options="typeOption for typeOption in typeOptions"></select>
+            <p>Enter in format: val1,val2,val3,etc</p>
+            <input ng-model="config.data2" type="text" size="100"/>
+            <select ng-model="config.type2" ng-options="typeOption for typeOption in typeOptions"></select>
+        </form>
+        <button ng-click="showGraph()">Show Graph</button>
+        <div id="chart3"></div>
+    </div>
+
+     <div class="row" ng-controller="GraphCtrl3">
+        <h1>Sample 4: Introducing time and data generation</h1>
+        <button ng-click="showGraph()">Show graph</button>
+        <button ng-click="startLoading()">Start</button>
+        <button ng-click="stopLoading()">Stop</button>
+        <div id="chart4"></div>
+    </div>
+</div>
+</body>
+</html>

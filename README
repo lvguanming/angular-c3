@@ -1,0 +1,5 @@
+#Using C3js with AngularJS
+
+C3js is a graph javascript library on top of D3js. For a project we needed graphs and we ended up using c3js. 
+
+This Project code is basic c3 sample to a more advanced AngularJS powered sample.
