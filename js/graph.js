@@ -83,8 +83,9 @@ graphApp.controller('GraphCtrl3', ['$scope','$timeout','dataService',function ($
         config.data.json = $scope.config.data;
         config.axis = {};
         config.axis.x = {"type":"timeseries","tick":{"format":"%S"}};
-        config.axis.label = "Time Series" ;
-        config.axis.position = "outer-center" ;
+        config.axis.x.label = "Time Series" ;
+        config.axis.x.position = "outer-center" ;
+        config.axis.x.type="category";
         config.axis.y = {"label":{"text":"Number of items","position":"outer-middle"}};
         config.data.types={"data1":$scope.config.type1,"data2":$scope.config.type2};
         $scope.chart = c3.generate(config);     
